@@ -11,7 +11,6 @@ Source2:	%{name}.png
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	lua-devel >= 4.0
-BuildRequires:	SDL-devel >= 1.2
 BuildRequires:	SDL_image-devel >= 1.2.0
 BuildRequires:	SDL_mixer-devel >= 1.2.0
 URL:		http://www.freesoftware.fsf.org/enigma/
@@ -63,7 +62,6 @@ autoheader
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT{%{_datadir}/enigma/{fonts,sound,gfx,levels},%{_bindir},%{_mandir}/man6,%{_pixmapsdir},%{_applnkdir}/Games}
 
 install enigma.6		$RPM_BUILD_ROOT%{_mandir}/man6
