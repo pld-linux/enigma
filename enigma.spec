@@ -1,11 +1,11 @@
 Summary:	Oxyd clone
 Summary(pl):	Klon gry Oxyd
 Name:		enigma
-Version:	0.40a
+Version:	0.50rc1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
-Source0:	http://freesoftware.fsf.org/download/enigma/%{name}-%{version}.tar.gz
+Source0:	http://freesoftware.fsf.org/download/enigma/%{name}-0.50-rc1.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 BuildRequires:	autoconf
@@ -20,34 +20,23 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_mandir		%{_prefix}/man
 
 %description
-Enigma is a tribute to and a re-implementation of one of the most
-original and intriguing computer games of the 1990's: Oxyd. Your
-objective is easily explained: find and uncover all pairs of identical
-Oxyd stones in each landscape. Sounds simple? It would be, if it
-weren't for hidden traps, vast mazes, insurmountable obstacles and
-innumerable puzzles blocking your direct way to the Oxyd stones...
-
-So far, Enigma implements about 80% of the game engine and a couple of
-simple objects, but a great deal is still missing. In particular, the
-game currently lacks game objects, graphics and sound effects, and,
-most importantly, the 200 levels that made Oxyd so entertaining.
+Enigma is a puzzle game inspired by Oxyd on the Atari ST and
+Rock'n'Roll on the Amiga: You control a small black marble and have to
+find and uncover all pairs of identical Oxyd stones in each landscape.
+Sounds simple? It would be, if it weren't for hidden traps, vast
+mazes, insurmountable obstacles and lots of hairy puzzles, blocking
+your direct way to the Oxyd stones...
 
 %description -l pl
-Enigma jest ho³dem dla i reimplementacj± jednej z najoryginalniejszych
-i najbardziej intryguj±cych gier komputerowych lat
-dziewiêædziesi±tych, Oxyd. Zadanie jest proste: znajd¼ i odkryj
-wszystkie pary identycznych Oxydowych kamieni na ka¿dej planszy. Brzmi
-³atwo? Tak by by³o, gdyby nie ukryte pu³apki, obszerne labirynty,
-niepokonane przeszkody i niezliczone ³amig³ówki blokuj±ce drogê do
-Oxydowych kamieni...
-
-Jak na razie Enigma implementuje oko³o 80% silnika gry i kilka
-prostych obiektów, lecz wiele rzeczy jeszcze brakuje, szczególnie
-obiektów, grafiki, efektów d¼wiêkowych, i, co najwa¿niejsze, 200
-poziomów dziêki którym Oxyd by³ tak przyjemny.
+Enigma jest gr± logiczn± zainspirowan± przez Oxyd z Atari ST i
+Rock'n'Roll z Amigi. Kontroluje siê ma³± czarn± kulkê maj±c za zadanie
+odnale¼æ i odkryæ wszystkie pary identycznych kamieni Oxyd na ka¿dej
+planszy. Proste? By³o by, gdyby nie ukryte pu³apki, przepastne
+labirynty, niepokonane przeszkody i mnóstwo w³ochatych zagadek
+blokuj±cych drogê do kamieni Oxyd.
 
 %prep
-%setup -q
+%setup -q -n %{name}-0.50-rc1
 
 %build
 aclocal
@@ -80,7 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README TODO
+%doc AUTHORS NEWS README TODO CREATING-LEVELS ChangeLog
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/enigma
 %{_mandir}/man6/*
