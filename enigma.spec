@@ -2,11 +2,11 @@ Summary:	Oxyd clone
 Summary(pl):	Klon gry Oxyd
 Name:		enigma
 Version:	0.90
-Release:	0.beta.1
+Release:	0.rc1.1
 License:	GPL
 Group:		X11/Applications/Games
-Source0:	http://savannah.nongnu.org/download/enigma/%{name}-%{version}-beta.tar.gz
-# Source0-md5:	bb67ee54c3b154d728e5911d60231907
+Source0:	http://savannah.nongnu.org/download/enigma/%{name}-%{version}-rc1.tar.gz
+# Source0-md5:	a8018a2e6520cdfcac9a06ac32257b84
 Source1:	%{name}.desktop
 BuildRequires:	SDL_image-devel >= 1.2.0
 BuildRequires:	SDL_mixer-devel >= 1.2.0
@@ -42,7 +42,7 @@ unüberwindliche Hindernisse und viele, viele Rätsel den direkten Weg zu
 den Steinen blockieren...
 
 %prep
-%setup -q -n %{name}-%{version}-beta
+%setup -q -n %{name}-%{version}-rc1
 
 %build
 rm -f missing
