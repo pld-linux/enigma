@@ -2,20 +2,20 @@ Summary:	Oxyd clone
 Summary(pl):	Klon gry Oxyd
 Name:		enigma
 Version:	0.80
-Release:	0.1
+Release:	0.beta.1
 License:	GPL
 Group:		X11/Applications/Games
-Source0:	http://freesoftware.fsf.org/download/enigma/%{name}-%{version}-beta.tar.gz
+Source0:	http://freesoftware.fsf.org/download/%{name}/%{name}-%{version}-beta.tar.gz
 # Source0-md5:	5dfb6761853792ecd1ba600b814e6f30
 Source1:	%{name}.desktop
+BuildRequires:	SDL_image-devel >= 1.2.0
+BuildRequires:	SDL_mixer-devel >= 1.2.0
+Buildrequires:	SDL_ttf-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	lua40-devel >= 4.0
-BuildRequires:	SDL_image-devel >= 1.2.0
-BuildRequires:	SDL_mixer-devel >= 1.2.0
 URL:		http://www.freesoftware.fsf.org/enigma/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 Enigma is a puzzle game inspired by Oxyd on the Atari ST and
@@ -71,6 +71,9 @@ install data/*.lua			$RPM_BUILD_ROOT%{_datadir}/enigma
 install %{SOURCE1}		$RPM_BUILD_ROOT%{_applnkdir}/Games
 install etc/enigma.png		$RPM_BUILD_ROOT%{_pixmapsdir}
 
+rm -f doc/manual/{images,}/Makefile*
+rm -f doc/manual/enigma.texi
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -78,7 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS CHANGES ChangeLog NEWS README doc/{TODO,functions.*,manual}
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/enigma
+%{_datadir}/%{name}
 %{_mandir}/man6/*
 %{_pixmapsdir}/*
 %{_applnkdir}/Games/*
