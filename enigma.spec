@@ -39,11 +39,11 @@ blokuj±cych drogê do kamieni Oxyd.
 %setup -q
 
 %build
-aclocal
-autoheader
+rm -f missing
+%{__aclocal}
+%{__autoheader}
 %{__autoconf}
 %{__automake}
-
 %configure \
 	CXX="%{__cxx}"
 
