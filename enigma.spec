@@ -1,12 +1,12 @@
 Summary:	Oxyd clone
 Summary(pl):	Klon gry Oxyd
 Name:		enigma
-Version:	0.81
-Release:	2
+Version:	0.90
+Release:	0.beta.1
 License:	GPL
 Group:		X11/Applications/Games
-Source0:	http://freesoftware.fsf.org/download/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	d200891cde56d9bdbac65aa65fb4aa34
+Source0:	http://savannah.nongnu.org/download/enigma/%{name}-%{version}-beta.tar.gz
+# Source0-md5:	bb67ee54c3b154d728e5911d60231907
 Source1:	%{name}.desktop
 BuildRequires:	SDL_image-devel >= 1.2.0
 BuildRequires:	SDL_mixer-devel >= 1.2.0
@@ -42,7 +42,7 @@ unüberwindliche Hindernisse und viele, viele Rätsel den direkten Weg zu
 den Steinen blockieren...
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}-beta
 
 %build
 rm -f missing
@@ -50,25 +50,30 @@ rm -f missing
 %{__autoheader}
 %{__autoconf}
 %{__automake}
-%configure \
-	CXX="%{__cxx}"
+%configure
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_datadir}/enigma/{fonts,sound,gfx,levels},%{_bindir},%{_mandir}/man6,%{_pixmapsdir},%{_desktopdir}}
-
+install -d $RPM_BUILD_ROOT{%{_datadir}/enigma/{fonts,sound,gfx{,32,40,48},levels/{Sokoban,m_tutor,patches},thumbs},%{_bindir},%{_mandir}/man6,%{_pixmapsdir},%{_desktopdir}}
+ 
 install doc/enigma.6			$RPM_BUILD_ROOT%{_mandir}/man6
 install src/enigma			$RPM_BUILD_ROOT%{_bindir}
-install data/fonts/*.{png,txt,bmf}	$RPM_BUILD_ROOT%{_datadir}/enigma/fonts
+install data/fonts/*.{png,bmf,ttf}	$RPM_BUILD_ROOT%{_datadir}/enigma/fonts
 install data/gfx/*.png			$RPM_BUILD_ROOT%{_datadir}/enigma/gfx
-install data/levels/*.{lua,png,txt}	$RPM_BUILD_ROOT%{_datadir}/enigma/levels
+install data/gfx32/*.{png,jpg}		$RPM_BUILD_ROOT%{_datadir}/enigma/gfx32
+install data/gfx40/*.{png,jpg}		$RPM_BUILD_ROOT%{_datadir}/enigma/gfx40
+install data/gfx48/*.{png,jpg}		$RPM_BUILD_ROOT%{_datadir}/enigma/gfx48
+install data/levels/*.{lua,png,txt,xml}	$RPM_BUILD_ROOT%{_datadir}/enigma/levels
+install data/levels/Sokoban/*.{lua,png,txt}	$RPM_BUILD_ROOT%{_datadir}/enigma/levels/Sokoban
+install data/levels/m_tutor/*.{lua,png,txt}	$RPM_BUILD_ROOT%{_datadir}/enigma/levels/m_tutor
+install data/levels/patches/*.lua	$RPM_BUILD_ROOT%{_datadir}/enigma/levels/patches
 install data/sound/*.{wav,s3m}		$RPM_BUILD_ROOT%{_datadir}/enigma/sound
 install data/*.lua			$RPM_BUILD_ROOT%{_datadir}/enigma
 
-install %{SOURCE1}		$RPM_BUILD_ROOT%{_desktopdir}
-install etc/enigma.png		$RPM_BUILD_ROOT%{_pixmapsdir}
+install %{SOURCE1}			$RPM_BUILD_ROOT%{_desktopdir}
+install data/gfx/enigma_marble.png	$RPM_BUILD_ROOT%{_pixmapsdir}/enigma.png
 
 rm -f doc/manual/{images,}/Makefile*
 rm -f doc/manual/enigma.texi
@@ -78,7 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS CHANGES ChangeLog NEWS README doc/{TODO,functions.*,manual}
+%doc CHANGES NEWS README doc/{TODO,functions.*,manual}
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
 %{_mandir}/man6/*
