@@ -10,7 +10,7 @@ Source0:	http://freesoftware.fsf.org/download/%{name}/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 BuildRequires:	SDL_image-devel >= 1.2.0
 BuildRequires:	SDL_mixer-devel >= 1.2.0
-Buildrequires:	SDL_ttf-devel
+BuildRequires:	SDL_ttf-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	lua40-devel >= 4.0
