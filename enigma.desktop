@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=enigma
+Comment=Oxyd clone
+Comment[pl]=Klon gry Oxyd
+Icon=enigma.png
+Exec=enigma
+Terminal=0
+Type=Application
