@@ -1,11 +1,11 @@
 Summary:	Oxyd clone
 Summary(pl):	Klon gry Oxyd
 Name:		enigma
-Version:	0.50rc1
+Version:	0.50
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
-Source0:	http://freesoftware.fsf.org/download/enigma/%{name}-0.50-rc1.tar.gz
+Source0:	http://freesoftware.fsf.org/download/enigma/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 BuildRequires:	autoconf
@@ -36,7 +36,7 @@ labirynty, niepokonane przeszkody i mnóstwo w³ochatych zagadek
 blokuj±cych drogê do kamieni Oxyd.
 
 %prep
-%setup -q -n %{name}-0.50-rc1
+%setup -q
 
 %build
 aclocal
