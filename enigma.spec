@@ -2,7 +2,7 @@ Summary:	Oxyd clone
 Summary(pl):	Klon gry Oxyd
 Name:		enigma
 Version:	0.50
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://freesoftware.fsf.org/download/enigma/%{name}-%{version}.tar.gz
@@ -10,7 +10,7 @@ Source1:	%{name}.desktop
 Source2:	%{name}.png
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	lua-devel >= 4.0
+BuildRequires:	lua40-devel >= 4.0
 BuildRequires:	SDL_image-devel >= 1.2.0
 BuildRequires:	SDL_mixer-devel >= 1.2.0
 URL:		http://www.freesoftware.fsf.org/enigma/
