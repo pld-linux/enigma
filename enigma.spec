@@ -1,8 +1,8 @@
 Summary:	Oxyd clone
 Summary(pl):	Klon gry Oxyd
 Name:		enigma
-Version:	0.50
-Release:	2
+Version:	0.60
+Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://freesoftware.fsf.org/download/enigma/%{name}-%{version}.tar.gz
@@ -57,7 +57,7 @@ install enigma.6		$RPM_BUILD_ROOT%{_mandir}/man6
 install enigma			$RPM_BUILD_ROOT%{_bindir}
 install fonts/*.{png,txt,bmf}	$RPM_BUILD_ROOT%{_datadir}/enigma/fonts
 install gfx/*.png		$RPM_BUILD_ROOT%{_datadir}/enigma/gfx
-install levels/*.{lua,png}	$RPM_BUILD_ROOT%{_datadir}/enigma/levels
+install levels/*.{lua,png,txt}	$RPM_BUILD_ROOT%{_datadir}/enigma/levels
 install sound/*.{wav,s3m}	$RPM_BUILD_ROOT%{_datadir}/enigma/sound
 install *.lua			$RPM_BUILD_ROOT%{_datadir}/enigma
 
