@@ -1,7 +1,7 @@
 Summary:	Oxyd clone
 Summary(pl):	Klon gry Oxyd
 Name:		enigma
-Version:	0.60
+Version:	0.70
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
@@ -60,13 +60,13 @@ rm -f missing
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_datadir}/enigma/{fonts,sound,gfx,levels},%{_bindir},%{_mandir}/man6,%{_pixmapsdir},%{_applnkdir}/Games}
 
-install enigma.6		$RPM_BUILD_ROOT%{_mandir}/man6
-install enigma			$RPM_BUILD_ROOT%{_bindir}
-install fonts/*.{png,txt,bmf}	$RPM_BUILD_ROOT%{_datadir}/enigma/fonts
-install gfx/*.png		$RPM_BUILD_ROOT%{_datadir}/enigma/gfx
-install levels/*.{lua,png,txt}	$RPM_BUILD_ROOT%{_datadir}/enigma/levels
-install sound/*.{wav,s3m}	$RPM_BUILD_ROOT%{_datadir}/enigma/sound
-install *.lua			$RPM_BUILD_ROOT%{_datadir}/enigma
+install doc/enigma.6			$RPM_BUILD_ROOT%{_mandir}/man6
+install src/enigma			$RPM_BUILD_ROOT%{_bindir}
+install data/fonts/*.{png,txt,bmf}	$RPM_BUILD_ROOT%{_datadir}/enigma/fonts
+install data/gfx/*.png			$RPM_BUILD_ROOT%{_datadir}/enigma/gfx
+install data/levels/*.{lua,png,txt}	$RPM_BUILD_ROOT%{_datadir}/enigma/levels
+install data/sound/*.{wav,s3m}		$RPM_BUILD_ROOT%{_datadir}/enigma/sound
+install data/*.lua			$RPM_BUILD_ROOT%{_datadir}/enigma
 
 install %{SOURCE1}		$RPM_BUILD_ROOT%{_applnkdir}/Games
 install %{SOURCE2}		$RPM_BUILD_ROOT%{_pixmapsdir}
@@ -76,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README TODO CREATING-LEVELS ChangeLog
+%doc doc/{CREATING-LEVELS,TODO} AUTHORS NEWS README
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/enigma
 %{_mandir}/man6/*
