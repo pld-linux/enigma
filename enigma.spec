@@ -16,8 +16,6 @@ BuildRequires:	SDL_mixer-devel >= 1.2.0
 URL:		http://www.freesoftware.fsf.org/enigma/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 Enigma is a puzzle game inspired by Oxyd on the Atari ST and
