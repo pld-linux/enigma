@@ -35,6 +35,15 @@ planszy. Proste? By³o by, gdyby nie ukryte pu³apki, przepastne
 labirynty, niepokonane przeszkody i mnóstwo w³ochatych zagadek
 blokuj±cych drogê do kamieni Oxyd.
 
+%description -l de
+Bei Enigma handelt es sich um ein Remake des 1990 erschienen
+Spiele-Klassikers Oxyd. Das Ziel des Spiels ist schnell erklärt:
+Versuchen Sie alle gleichfarbigen "Oxyd"-Steine in jeder Landschaft zu
+finden und aufzudecken. Hört sich einfach an? Wäre es vielleicht auch,
+würden nicht versteckte Fallen, gewaltige Irrgärten, scheinbar
+unüberwindliche Hindernisse und viele, viele Rätsel den direkten Weg zu
+den Steinen blockieren...
+
 %prep
 %setup -q
 
