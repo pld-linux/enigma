@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://freesoftware.fsf.org/download/enigma/%{name}-%{version}.tar.gz
+# Source0-md5:	8cdbf6aaeec13d545fa9d2382cfae032
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 BuildRequires:	autoconf
