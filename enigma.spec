@@ -2,7 +2,7 @@ Summary:	Oxyd clone
 Summary(pl):	Klon gry Oxyd
 Name:		enigma
 Version:	0.81
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://freesoftware.fsf.org/download/%{name}/%{name}-%{version}.tar.gz
@@ -58,7 +58,7 @@ rm -f missing
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_datadir}/enigma/{fonts,sound,gfx,levels},%{_bindir},%{_mandir}/man6,%{_pixmapsdir},%{_applnkdir}/Games}
+install -d $RPM_BUILD_ROOT{%{_datadir}/enigma/{fonts,sound,gfx,levels},%{_bindir},%{_mandir}/man6,%{_pixmapsdir},%{_desktopdir}}
 
 install doc/enigma.6			$RPM_BUILD_ROOT%{_mandir}/man6
 install src/enigma			$RPM_BUILD_ROOT%{_bindir}
@@ -68,7 +68,7 @@ install data/levels/*.{lua,png,txt}	$RPM_BUILD_ROOT%{_datadir}/enigma/levels
 install data/sound/*.{wav,s3m}		$RPM_BUILD_ROOT%{_datadir}/enigma/sound
 install data/*.lua			$RPM_BUILD_ROOT%{_datadir}/enigma
 
-install %{SOURCE1}		$RPM_BUILD_ROOT%{_applnkdir}/Games
+install %{SOURCE1}		$RPM_BUILD_ROOT%{_desktopdir}
 install etc/enigma.png		$RPM_BUILD_ROOT%{_pixmapsdir}
 
 rm -f doc/manual/{images,}/Makefile*
@@ -84,4 +84,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_mandir}/man6/*
 %{_pixmapsdir}/*
-%{_applnkdir}/Games/*
+%{_desktopdir}/*
