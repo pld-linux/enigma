@@ -1,14 +1,13 @@
 Summary:	Oxyd clone
 Summary(pl):	Klon gry Oxyd
 Name:		enigma
-Version:	0.70
-Release:	1
+Version:	0.80
+Release:	0.1
 License:	GPL
 Group:		X11/Applications/Games
-Source0:	http://freesoftware.fsf.org/download/enigma/%{name}-%{version}.tar.gz
-# Source0-md5:	8cdbf6aaeec13d545fa9d2382cfae032
+Source0:	http://freesoftware.fsf.org/download/enigma/%{name}-%{version}-beta.tar.gz
+# Source0-md5:	5dfb6761853792ecd1ba600b814e6f30
 Source1:	%{name}.desktop
-Source2:	%{name}.png
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	lua40-devel >= 4.0
@@ -44,7 +43,7 @@ unüberwindliche Hindernisse und viele, viele Rätsel den direkten Weg zu
 den Steinen blockieren...
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}-beta
 
 %build
 rm -f missing
@@ -70,14 +69,14 @@ install data/sound/*.{wav,s3m}		$RPM_BUILD_ROOT%{_datadir}/enigma/sound
 install data/*.lua			$RPM_BUILD_ROOT%{_datadir}/enigma
 
 install %{SOURCE1}		$RPM_BUILD_ROOT%{_applnkdir}/Games
-install %{SOURCE2}		$RPM_BUILD_ROOT%{_pixmapsdir}
+install etc/enigma.png		$RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc/{CREATING-LEVELS,TODO} AUTHORS NEWS README
+%doc AUTHORS CHANGES ChangeLog NEWS README doc/{TODO,functions.*,manual}
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/enigma
 %{_mandir}/man6/*
