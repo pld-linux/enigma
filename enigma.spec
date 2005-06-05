@@ -1,13 +1,14 @@
 Summary:	Oxyd clone
 Summary(pl):	Klon gry Oxyd
 Name:		enigma
-Version:	0.91
+Version:	0.92
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://savannah.nongnu.org/download/enigma/%{name}-%{version}.tar.gz
-# Source0-md5:	784d12ff1846ab05986a6d0c7489e5ea
+# Source0-md5:	b33d8fad75910c9a525f4382f5185f75
 Source1:	%{name}.desktop
+URL:		http://www.nongnu.org/enigma/
 BuildRequires:	SDL_image-devel >= 1.2.0
 BuildRequires:	SDL_mixer-devel >= 1.2.0
 BuildRequires:	SDL_ttf-devel
@@ -15,7 +16,6 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	libstdc++-devel
-URL:		http://www.freesoftware.fsf.org/enigma/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -26,14 +26,6 @@ Sounds simple? It would be, if it weren't for hidden traps, vast
 mazes, insurmountable obstacles and lots of hairy puzzles, blocking
 your direct way to the Oxyd stones...
 
-%description -l pl
-Enigma jest gr± logiczn± zainspirowan± przez Oxyd z Atari ST i
-Rock'n'Roll z Amigi. Kontroluje siê ma³± czarn± kulkê maj±c za zadanie
-odnale¼æ i odkryæ wszystkie pary identycznych kamieni Oxyd na ka¿dej
-planszy. Proste? By³o by, gdyby nie ukryte pu³apki, przepastne
-labirynty, niepokonane przeszkody i mnóstwo w³ochatych zagadek
-blokuj±cych drogê do kamieni Oxyd.
-
 %description -l de
 Bei Enigma handelt es sich um ein Remake des 1990 erschienen
 Spiele-Klassikers Oxyd. Das Ziel des Spiels ist schnell erklärt:
@@ -43,11 +35,22 @@ würden nicht versteckte Fallen, gewaltige Irrgärten, scheinbar
 unüberwindliche Hindernisse und viele, viele Rätsel den direkten Weg zu
 den Steinen blockieren...
 
+%description -l pl
+Enigma jest gr± logiczn± zainspirowan± przez Oxyd z Atari ST i
+Rock'n'Roll z Amigi. Kontroluje siê ma³± czarn± kulkê maj±c za zadanie
+odnale¼æ i odkryæ wszystkie pary identycznych kamieni Oxyd na ka¿dej
+planszy. Proste? By³o by, gdyby nie ukryte pu³apki, przepastne
+labirynty, niepokonane przeszkody i mnóstwo w³ochatych zagadek
+blokuj±cych drogê do kamieni Oxyd.
+
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
+
+# hack: don't rebuild it, requires too new(?) version of texi2html
+# (doesn't work with texi2html 1.56k from tetex 2.0.2)
+touch doc/manual/*.html
 
 %build
-rm -f missing
 %{__aclocal}
 %{__autoheader}
 %{__autoconf}
