@@ -1,21 +1,22 @@
 Summary:	Oxyd clone
 Summary(pl):	Klon gry Oxyd
 Name:		enigma
-Version:	0.92
+Version:	1.00
 Release:	1
-License:	GPL
+License:	GPL v2+
 Group:		X11/Applications/Games
-Source0:	http://savannah.nongnu.org/download/enigma/%{name}-%{version}.tar.gz
-# Source0-md5:	b33d8fad75910c9a525f4382f5185f75
+Source0:	http://download.berlios.de/enigma-game/enigma-1.00.tar.gz
+# Source0-md5:	428a9cce666cd45812e785f00a483ef9
 Source1:	%{name}.desktop
 URL:		http://www.nongnu.org/enigma/
 BuildRequires:	SDL_image-devel >= 1.2.0
-BuildRequires:	SDL_mixer-devel >= 1.2.0
+BuildRequires:	SDL_mixer-devel >= 1.2.5
 BuildRequires:	SDL_ttf-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	libstdc++-devel
+BuildRequires:	xerces-c-devel >= 2.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -61,21 +62,10 @@ touch doc/manual/*.html
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_datadir}/enigma/{fonts,sound,gfx{,32,40,48},levels/{Sokoban,m_tutor,patches},thumbs},%{_bindir},%{_mandir}/man6,%{_pixmapsdir},%{_desktopdir}}
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
  
-install doc/enigma.6			$RPM_BUILD_ROOT%{_mandir}/man6
-install src/enigma			$RPM_BUILD_ROOT%{_bindir}
-install data/fonts/*.{png,bmf,ttf}	$RPM_BUILD_ROOT%{_datadir}/enigma/fonts
-install data/gfx/*.png			$RPM_BUILD_ROOT%{_datadir}/enigma/gfx
-install data/gfx32/*.{png,jpg}		$RPM_BUILD_ROOT%{_datadir}/enigma/gfx32
-install data/gfx40/*.{png,jpg}		$RPM_BUILD_ROOT%{_datadir}/enigma/gfx40
-install data/gfx48/*.{png,jpg}		$RPM_BUILD_ROOT%{_datadir}/enigma/gfx48
-install data/levels/*.{lua,png,txt,xml}	$RPM_BUILD_ROOT%{_datadir}/enigma/levels
-install data/levels/Sokoban/*.{lua,png,txt}	$RPM_BUILD_ROOT%{_datadir}/enigma/levels/Sokoban
-install data/levels/m_tutor/*.{lua,png,txt}	$RPM_BUILD_ROOT%{_datadir}/enigma/levels/m_tutor
-install data/levels/patches/*.lua	$RPM_BUILD_ROOT%{_datadir}/enigma/levels/patches
-install data/sound/*.{wav,s3m}		$RPM_BUILD_ROOT%{_datadir}/enigma/sound
-install data/*.lua			$RPM_BUILD_ROOT%{_datadir}/enigma
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1}			$RPM_BUILD_ROOT%{_desktopdir}
 install data/gfx/enigma_marble.png	$RPM_BUILD_ROOT%{_pixmapsdir}/enigma.png
@@ -83,14 +73,16 @@ install data/gfx/enigma_marble.png	$RPM_BUILD_ROOT%{_pixmapsdir}/enigma.png
 rm -f doc/manual/{images,}/Makefile*
 rm -f doc/manual/enigma.texi
 
+%find_lang %{name} --all-name
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc ChangeLog.tla CHANGES NEWS README doc/{TODO,functions.*,manual}
+%doc CHANGES README doc/manual
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
+%{_desktopdir}/*.desktop
 %{_mandir}/man6/*
 %{_pixmapsdir}/*
-%{_desktopdir}/*.desktop
