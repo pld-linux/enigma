@@ -1,5 +1,5 @@
 Summary:	Oxyd clone
-Summary(pl.UTF-8):   Klon gry Oxyd
+Summary(pl.UTF-8):	Klon gry Oxyd
 Name:		enigma
 Version:	1.00
 Release:	1
