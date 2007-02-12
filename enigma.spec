@@ -1,5 +1,5 @@
 Summary:	Oxyd clone
-Summary(pl):	Klon gry Oxyd
+Summary(pl.UTF-8):   Klon gry Oxyd
 Name:		enigma
 Version:	1.00
 Release:	1
@@ -27,22 +27,22 @@ Sounds simple? It would be, if it weren't for hidden traps, vast
 mazes, insurmountable obstacles and lots of hairy puzzles, blocking
 your direct way to the Oxyd stones...
 
-%description -l de
+%description -l de.UTF-8
 Bei Enigma handelt es sich um ein Remake des 1990 erschienen
-Spiele-Klassikers Oxyd. Das Ziel des Spiels ist schnell erklärt:
+Spiele-Klassikers Oxyd. Das Ziel des Spiels ist schnell erklÃ¤rt:
 Versuchen Sie alle gleichfarbigen "Oxyd"-Steine in jeder Landschaft zu
-finden und aufzudecken. Hört sich einfach an? Wäre es vielleicht auch,
-würden nicht versteckte Fallen, gewaltige Irrgärten, scheinbar
-unüberwindliche Hindernisse und viele, viele Rätsel den direkten Weg zu
+finden und aufzudecken. HÃ¶rt sich einfach an? WÃ¤re es vielleicht auch,
+wÃ¼rden nicht versteckte Fallen, gewaltige IrrgÃ¤rten, scheinbar
+unÃ¼berwindliche Hindernisse und viele, viele RÃ¤tsel den direkten Weg zu
 den Steinen blockieren...
 
-%description -l pl
-Enigma jest gr± logiczn± zainspirowan± przez Oxyd z Atari ST i
-Rock'n'Roll z Amigi. Kontroluje siê ma³± czarn± kulkê maj±c za zadanie
-odnale¼æ i odkryæ wszystkie pary identycznych kamieni Oxyd na ka¿dej
-planszy. Proste? By³o by, gdyby nie ukryte pu³apki, przepastne
-labirynty, niepokonane przeszkody i mnóstwo w³ochatych zagadek
-blokuj±cych drogê do kamieni Oxyd.
+%description -l pl.UTF-8
+Enigma jest grÄ… logicznÄ… zainspirowanÄ… przez Oxyd z Atari ST i
+Rock'n'Roll z Amigi. Kontroluje siÄ™ maÅ‚Ä… czarnÄ… kulkÄ™ majÄ…c za zadanie
+odnaleÅºÄ‡ i odkryÄ‡ wszystkie pary identycznych kamieni Oxyd na kaÅ¼dej
+planszy. Proste? ByÅ‚o by, gdyby nie ukryte puÅ‚apki, przepastne
+labirynty, niepokonane przeszkody i mnÃ³stwo wÅ‚ochatych zagadek
+blokujÄ…cych drogÄ™ do kamieni Oxyd.
 
 %prep
 %setup -q
