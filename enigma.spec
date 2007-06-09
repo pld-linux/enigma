@@ -1,12 +1,12 @@
 Summary:	Oxyd clone
 Summary(pl.UTF-8):	Klon gry Oxyd
 Name:		enigma
-Version:	1.00
+Version:	1.01
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://download.berlios.de/enigma-game/%{name}-%{version}.tar.gz
-# Source0-md5:	428a9cce666cd45812e785f00a483ef9
+# Source0-md5:	d3804534ac03425051ebfd383ed1b4ee
 Source1:	%{name}.desktop
 URL:		http://www.nongnu.org/enigma/
 BuildRequires:	SDL_image-devel >= 1.2.0
@@ -52,6 +52,7 @@ blokujących drogę do kamieni Oxyd.
 touch doc/manual/*.html
 
 %build
+%{__gettextize}
 %{__aclocal}
 %{__autoheader}
 %{__autoconf}
