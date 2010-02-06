@@ -16,6 +16,7 @@ BuildRequires:	SDL_ttf-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
+BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	xerces-c-devel >= 2.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -34,8 +35,8 @@ Spiele-Klassikers Oxyd. Das Ziel des Spiels ist schnell erklärt:
 Versuchen Sie alle gleichfarbigen "Oxyd"-Steine in jeder Landschaft zu
 finden und aufzudecken. Hört sich einfach an? Wäre es vielleicht auch,
 würden nicht versteckte Fallen, gewaltige Irrgärten, scheinbar
-unüberwindliche Hindernisse und viele, viele Rätsel den direkten Weg zu
-den Steinen blockieren...
+unüberwindliche Hindernisse und viele, viele Rätsel den direkten Weg
+zu den Steinen blockieren...
 
 %description -l pl.UTF-8
 Enigma jest grą logiczną zainspirowaną przez Oxyd z Atari ST i
@@ -66,7 +67,7 @@ touch doc/manual/*.html
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
- 
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
