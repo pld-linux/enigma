@@ -2,7 +2,7 @@ Summary:	Oxyd clone
 Summary(pl.UTF-8):	Klon gry Oxyd
 Name:		enigma
 Version:	1.01
-Release:	3
+Release:	4
 License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://download.berlios.de/enigma-game/%{name}-%{version}.tar.gz
