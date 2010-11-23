@@ -9,6 +9,7 @@ Source0:	http://download.berlios.de/enigma-game/%{name}-%{version}.tar.gz
 # Source0-md5:	d3804534ac03425051ebfd383ed1b4ee
 Source1:	%{name}.desktop
 Patch0:		%{name}-gcc.patch
+Patch1:		%{name}-xerces.patch
 URL:		http://www.nongnu.org/enigma/
 BuildRequires:	SDL_image-devel >= 1.2.0
 BuildRequires:	SDL_mixer-devel >= 1.2.5
@@ -49,6 +50,7 @@ blokujących drogę do kamieni Oxyd.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 # hack: don't rebuild it, requires too new(?) version of texi2html
 # (doesn't work with texi2html 1.56k from tetex 2.0.2)
