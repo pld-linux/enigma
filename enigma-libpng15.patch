@@ -1,0 +1,11 @@
+--- enigma-1.01/lib-src/enigma-core/IMG_SavePNG.c~	2005-11-25 00:17:06.000000000 +0100
++++ enigma-1.01/lib-src/enigma-core/IMG_SavePNG.c	2012-02-12 09:33:05.722521948 +0100
+@@ -84,7 +84,7 @@
+                 png_bytep *row_pointers = 0;
+ 
+                 /* Set error handling. */
+-                if (setjmp(png_ptr->jmpbuf)) {
++                if (setjmp(png_jmpbuf(png_ptr))) {
+                     IMG_SetError("Error writing the PNG file");
+                 }
+                 else {
