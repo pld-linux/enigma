@@ -94,3 +94,23 @@ diff -Nur enigma-1.01/build-tree/enigma-1.01/src/gui/widgets.cc enigma-1.01.new/
  #include "lev/Index.hh"
  #include "lev/VolatileIndex.hh"
  #include "errors.hh"
+--- enigma-1.01/lib-src/zipios++/src/directory.h~	2006-05-01 11:13:01.000000000 +0200
++++ enigma-1.01/lib-src/zipios++/src/directory.h	2012-02-12 09:32:06.068895517 +0100
+@@ -31,6 +31,7 @@
+ #include <string>
+ #include <ctime>
+ #include <stdexcept>
++#include <cstddef>
+ 
+ // #include <boost.h>  Contents of boost.h
+ 
+--- enigma-1.01/lib-src/enigma-core/ecl_dict.hh~	2005-11-25 00:17:06.000000000 +0100
++++ enigma-1.01/lib-src/enigma-core/ecl_dict.hh	2012-02-12 09:34:46.143015339 +0100
+@@ -21,6 +21,7 @@
+ 
+ #include "ecl_error.hh"
+ #include <utility>
++#include <cstddef>
+ 
+ namespace ecl
+ {
