@@ -1,16 +1,13 @@
 Summary:	Oxyd clone
 Summary(pl.UTF-8):	Klon gry Oxyd
 Name:		enigma
-Version:	1.01
-Release:	11
+Version:	1.20
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
-Source0:	http://download.berlios.de/enigma-game/%{name}-%{version}.tar.gz
-# Source0-md5:	d3804534ac03425051ebfd383ed1b4ee
+Source0:	http://downloads.sourceforge.net/project/enigma-game/Release%20%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	5871158e07e675d1472f3cfc2a6557ff
 Source1:	%{name}.desktop
-Patch0:		%{name}-gcc.patch
-Patch1:		%{name}-xerces.patch
-Patch2:		%{name}-libpng15.patch
 URL:		http://www.nongnu.org/enigma/
 BuildRequires:	SDL_image-devel >= 1.2.0
 BuildRequires:	SDL_mixer-devel >= 1.2.5
@@ -50,13 +47,6 @@ blokujących drogę do kamieni Oxyd.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-
-# hack: don't rebuild it, requires too new(?) version of texi2html
-# (doesn't work with texi2html 1.56k from tetex 2.0.2)
-touch doc/manual/*.html
 
 %build
 %{__gettextize}
