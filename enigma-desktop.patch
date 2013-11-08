@@ -1,0 +1,21 @@
+--- enigma-1.20/etc/enigma.desktop.orig	2013-04-01 20:31:57.000000000 +0200
++++ enigma-1.20/etc/enigma.desktop	2013-11-08 17:54:43.567084557 +0100
+@@ -4,9 +4,11 @@
+ 
+ Name=Enigma
+ Name[eo]=Enigmo
++Name[pl]=Enigma
+ 
+ Comment=Uncover pairs of stones while navigating obstacles using a marble
+ Comment[eo]=Malkovru parojn de ŝtonojn dum vi navigas obstaklojn kun globeto
++Comment[pl]=Odkrywanie par kamieni z omijaniem przeszkód przy użyciu kuli
+ 
+ FilePattern=enigma;
+ TryExec=enigma
+@@ -17,5 +19,5 @@
+ StartupNotify=false
+ 
+ Type=Application
+-Categories=Application;Game;PuzzleGame;
++Categories=Game;PuzzleGame;
+ 

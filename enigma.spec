@@ -5,19 +5,27 @@ Version:	1.20
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
-Source0:	http://downloads.sourceforge.net/project/enigma-game/Release%20%{version}/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/enigma-game/%{name}-%{version}.tar.gz
 # Source0-md5:	5871158e07e675d1472f3cfc2a6557ff
-Source1:	%{name}.desktop
+Patch0:		%{name}-desktop.patch
 URL:		http://www.nongnu.org/enigma/
+BuildRequires:	SDL-devel >= 1.2.0
 BuildRequires:	SDL_image-devel >= 1.2.0
 BuildRequires:	SDL_mixer-devel >= 1.2.5
-BuildRequires:	SDL_ttf-devel
-BuildRequires:	autoconf
+BuildRequires:	SDL_ttf-devel >= 2.0.6
+BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
+BuildRequires:	curl-devel
 BuildRequires:	gettext-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	xerces-c-devel >= 2.4
+BuildRequires:	zlib-devel
+Requires:	SDL >= 1.2.0
+Requires:	SDL_image >= 1.2.0
+Requires:	SDL_mixer >= 1.2.5
+Requires:	SDL_ttf >= 2.0.6
+Requires:	xerces-c >= 2.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -47,6 +55,7 @@ blokujących drogę do kamieni Oxyd.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__gettextize}
@@ -60,16 +69,14 @@ blokujących drogę do kamieni Oxyd.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1}			$RPM_BUILD_ROOT%{_desktopdir}
-install data/gfx/enigma_marble.png	$RPM_BUILD_ROOT%{_pixmapsdir}/enigma.png
+%{__rm} -r $RPM_BUILD_ROOT{%{_libdir}/libenet.a,%{_includedir}/enet}
 
-rm -f doc/manual/{images,}/Makefile*
-rm -f doc/manual/enigma.texi
+# generic license texts
+%{__rm} $RPM_BUILD_ROOT%{_docdir}/enigma/{COPYING,gpl.txt,lgpl.txt}
 
 %find_lang %{name} --all-name
 
@@ -78,9 +85,22 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc CHANGES README doc/manual
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/enigma
 %{_datadir}/%{name}
-%{_desktopdir}/*.desktop
-%{_mandir}/man6/*
-%{_pixmapsdir}/*
+%{_desktopdir}/enigma.desktop
+%{_iconsdir}/hicolor/48x48/apps/enigma.png
+%{_pixmapsdir}/enigma.png
+%{_mandir}/man6/enigma.6*
+%dir %{_docdir}/enigma
+%{_docdir}/enigma/ACKNOWLEDGEMENTS
+%{_docdir}/enigma/CHANGES
+%{_docdir}/enigma/README
+%{_docdir}/enigma/index.html
+%{_docdir}/enigma/images
+%dir %{_docdir}/enigma/manual
+%{_docdir}/enigma/manual/enigma.html
+%lang(de) %{_docdir}/enigma/manual/enigma_de.html
+%lang(fr) %{_docdir}/enigma/manual/enigma_fr.html
+%lang(ru) %{_docdir}/enigma/manual/enigma_ru.html
+%{_docdir}/enigma/manual/images
+%{_docdir}/enigma/reference
