@@ -16,7 +16,7 @@ BuildRequires:	SDL_ttf-devel >= 2.0.6
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 BuildRequires:	curl-devel
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	xerces-c-devel >= 2.4
