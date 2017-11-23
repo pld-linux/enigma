@@ -1,21 +1,26 @@
---- enigma-1.20/etc/enigma.desktop.orig	2013-04-01 20:31:57.000000000 +0200
-+++ enigma-1.20/etc/enigma.desktop	2013-11-08 17:54:43.567084557 +0100
-@@ -4,9 +4,11 @@
- 
- Name=Enigma
- Name[eo]=Enigmo
-+Name[pl]=Enigma
- 
- Comment=Uncover pairs of stones while navigating obstacles using a marble
- Comment[eo]=Malkovru parojn de ŝtonojn dum vi navigas obstaklojn kun globeto
-+Comment[pl]=Odkrywanie par kamieni z omijaniem przeszkód przy użyciu kuli
- 
- FilePattern=enigma;
- TryExec=enigma
-@@ -17,5 +19,5 @@
+From d2e77fff6d28ade1f0284fd80cd88bb60c4c27c6 Mon Sep 17 00:00:00 2001
+From: Michael Thomas <wart@fedoraproject.org>
+Date: Wed, 6 Jun 2007 01:50:36 +0000
+Subject: [PATCH 1/2] Clean up .desktop file categories
+
+Clean up .desktop file categories so that it follows the Fedora and
+desktop file standards:
+http://standards.freedesktop.org/menu-spec/latest/apa.html
+---
+ etc/enigma.desktop | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/etc/enigma.desktop b/etc/enigma.desktop
+index 9c84137dcb..0b531f1ac2 100644
+--- a/etc/enigma.desktop
++++ b/etc/enigma.desktop
+@@ -44,5 +44,5 @@ Terminal=false
  StartupNotify=false
- 
+ Icon=enigma
  Type=Application
 -Categories=Application;Game;PuzzleGame;
-+Categories=Game;PuzzleGame;
++Categories=Game;LogicGame;
  
+-- 
+2.1.0
+

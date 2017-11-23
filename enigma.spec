@@ -1,13 +1,15 @@
 Summary:	Oxyd clone
 Summary(pl.UTF-8):	Klon gry Oxyd
 Name:		enigma
-Version:	1.20
+Version:	1.21
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://downloads.sourceforge.net/enigma-game/%{name}-%{version}.tar.gz
-# Source0-md5:	5871158e07e675d1472f3cfc2a6557ff
+# Source0-md5:	d2f4a099a704fdf7f12d024d2b7e6d1b
 Patch0:		%{name}-desktop.patch
+Patch1:		0003-prevent-ImageMagick-inserting-timestamps-to-PNGs.patch
+Patch2:		0004-src-lev-Proxy.cc-fix-check-for-basic_ifstream-s-read.patch
 URL:		http://www.nongnu.org/enigma/
 BuildRequires:	SDL-devel >= 1.2.0
 BuildRequires:	SDL_image-devel >= 1.2.0
@@ -56,6 +58,8 @@ blokujących drogę do kamieni Oxyd.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 %{__gettextize}

@@ -1,0 +1,26 @@
+From 016017c5afa803ffe79e5b667a9a0a8377ea098e Mon Sep 17 00:00:00 2001
+From: Michal Schmidt <mschmidt@redhat.com>
+Date: Mon, 22 Feb 2016 17:24:47 +0100
+Subject: [PATCH 4/4] src/lev/Proxy.cc: fix check for basic_ifstream's
+ readiness
+
+---
+ src/lev/Proxy.cc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/lev/Proxy.cc b/src/lev/Proxy.cc
+index 6d58c0ba9a..69f54a20b8 100644
+--- a/src/lev/Proxy.cc
++++ b/src/lev/Proxy.cc
+@@ -933,7 +933,7 @@ namespace enigma { namespace lev {
+                     } else if (haveLocalCopy) {
+                         // plain file
+                         basic_ifstream<char> ifs(absExtPath.c_str(), ios::binary | ios::in);
+-                        if (ifs != NULL)
++                        if (ifs)
+                             Readfile(ifs, extCode);
+                         else
+                             haveLocalCopy = false;
+-- 
+2.5.0
+
