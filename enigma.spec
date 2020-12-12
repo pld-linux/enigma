@@ -2,7 +2,7 @@ Summary:	Oxyd clone
 Summary(pl.UTF-8):	Klon gry Oxyd
 Name:		enigma
 Version:	1.21
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://downloads.sourceforge.net/enigma-game/%{name}-%{version}.tar.gz
@@ -10,6 +10,7 @@ Source0:	http://downloads.sourceforge.net/enigma-game/%{name}-%{version}.tar.gz
 Patch0:		%{name}-desktop.patch
 Patch1:		0003-prevent-ImageMagick-inserting-timestamps-to-PNGs.patch
 Patch2:		0004-src-lev-Proxy.cc-fix-check-for-basic_ifstream-s-read.patch
+Patch3:		%{name}-gettext.patch
 URL:		http://www.nongnu.org/enigma/
 BuildRequires:	SDL-devel >= 1.2.0
 BuildRequires:	SDL_image-devel >= 1.2.0
@@ -60,12 +61,13 @@ blokujących drogę do kamieni Oxyd.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 %{__gettextize}
-%{__aclocal}
-%{__autoheader}
+%{__aclocal} -I m4
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure
 
@@ -91,6 +93,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/enigma
 %{_datadir}/%{name}
+%{_datadir}/appdata/enigma.appdata.xml
 %{_desktopdir}/enigma.desktop
 %{_iconsdir}/hicolor/48x48/apps/enigma.png
 %{_pixmapsdir}/enigma.png
